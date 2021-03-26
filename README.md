@@ -1,4 +1,3 @@
 # organicemos
-Pizarra colavorativa para la organización del hogar 
+Pizarra colaborativa para la organización del hogar 
 
-hola hola :) me llamo anto
