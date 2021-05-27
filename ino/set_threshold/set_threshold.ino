@@ -1,16 +1,3 @@
-/*********************************************************
-This is a library for the MPR121 12-channel Capacitive touch sensor
-Designed specifically to work with the MPR121 Breakout in the Adafruit shop 
-  ----> https://www.adafruit.com/products/
-These sensors use I2C communicate, at least 2 pins are required 
-to interface
-Adafruit invests time and resources providing this open source code, 
-please support Adafruit and open-source hardware by purchasing 
-products from Adafruit!
-Written by Limor Fried/Ladyada for Adafruit Industries.  
-BSD license, all text above must be included in any redistribution
-**********************************************************/
-
 #include <Wire.h>
 #include "Adafruit_MPR121.h"
 
@@ -25,6 +12,9 @@ Adafruit_MPR121 cap = Adafruit_MPR121();
 // so we know when buttons are 'released'
 uint16_t lasttouched = 0;
 uint16_t currtouched = 0;
+
+uint8_t set_touch = 0X05;
+uint8_t set_realese = 0X05;  
 
 void setup() {
   Serial.begin(9600);
@@ -42,6 +32,9 @@ void setup() {
     while (1);
   }
   Serial.println("MPR121 found!");
+  
+  setThresholds(set_touch,set_realese)
+  
 }
 
 void loop() {
